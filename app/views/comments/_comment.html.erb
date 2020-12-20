@@ -1,15 +1,14 @@
+<div class="mt-5 shadow-sm p-3 mb-5 bg-white rounded">
 <p>
-  <strong>Commenter:</strong>
+  <strong>By:</strong>
   <%= comment.commenter %>
 </p>
  
 <p>
   <strong>Comment:</strong>
   <%= comment.body %>
-</p>
-
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
+  <%= link_to 'Delete', [comment.article, comment],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' }, class: "ml-5 btn btn-danger" %>
 </p>
+</div>

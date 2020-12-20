@@ -15,18 +15,21 @@
       </div>
     <% end %>
    
+  <div class="mb-3">
     <p>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
+      <%= form.label :title, class:"form-label" %><br>
+      <%= form.text_field :title, class:"form-control" %>
     </p>
-   
+  </div> 
+  <div class="mb-3">
     <p>
-      <%= form.label :text %><br>
-      <%= form.text_area :text %>
+      <%= form.label :text, class:"form-label" %><br>
+      <%= form.text_area :text, class:"form-control text-justify", style:"height: 400px" %>
     </p>
-   
-    <p>
-      <%= form.submit %>
+   </div>
+   <div class="mb-1">
+    <p class="mb-3">
+      <%= form.submit%>
     </p>
-   
+   </div>
   <% end %>

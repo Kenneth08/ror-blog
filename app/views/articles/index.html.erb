@@ -1,24 +1,29 @@
 
-<h1>Listing Articles</h1>
+<h1 class="mt-5">Articles</h1>
  
-<%= link_to 'New article', new_article_path %>
-<table>
+<%= link_to 'New article', new_article_path, class: "mt-3 btn btn-info" %>
+
+<table class="mt-5 table table-striped table-hover">
+ <thead>
   <tr>
     <th>Title</th>
-    <th>Text</th>
+    <th>Content</th>
     <th></th>
   </tr>
+ </thead>
  
   <% @articles.each do |article| %>
+  <tbody>
     <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Delete', article_path(article),
+      <td class="fw-bold"><%= article.title %></td>
+      <td class="text-justify"><%= article.text  %></td>
+      <td><%= link_to 'Show', article_path(article), class: "btn btn-success" %></td>
+      <td><%= link_to 'Edit', edit_article_path(article), class: "btn btn-warning" %></td>
+      <td><%= link_to 'Delete', article_path(article), class: "btn btn-outline-danger",
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
+  </tbody>
   <% end %>
 </table>
-<%= link_to 'Back', controller: 'welcome' %>
+<%= link_to 'Back', welcome_index_path, class: "mb-5 btn btn-secondary btn-lg" %>
