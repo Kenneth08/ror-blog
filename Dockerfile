@@ -16,23 +16,18 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 RUN apt update && apt install yarn -y --no-install-recommends
 
-
+#Ruby Gems
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
+
 COPY entrypoint.sh entrypoint.sh
 
+#Install gems
 RUN gem install bundler -v "2.1.4"
 RUN bundle install
 
 COPY . .
 RUN yarn install --check-files
-RUN ls
-# Add a script to be executed every time the container starts.
 
 
-#RUN chmod +x /usr/bin/entrypoint.sh
-#ENTRYPOINT ["entrypoint.sh"]
-#EXPOSE 3000
 
-# Start the main process.
-#CMD ["rails", "server", "-b", "0.0.0.0"]
